@@ -1,0 +1,187 @@
+body {
+	background-color: #2C2C27;
+	color: #F6F2DB;
+	font-family: helvetica, arial;
+}
+
+#authbox {
+	border: 3px solid #F6F2DB;
+	position: fixed;
+	top: 25%;
+	left: 30%;
+	right: 30%;
+	padding: 15px;
+	border-radius: 5px;
+	background-color: #2C2C27;
+	opacity: .8;
+}
+
+#authbox label {
+	display: block;
+	font-weight: bold;
+	text-align: left;
+	padding-right: 8px;
+}
+
+
+#authbox input {
+	display: block;
+	height: 20px;
+	border: 1px solid white;
+	border-radius: 3px;
+	width: 100%;
+	color: #272822;
+	font-size: 13px;
+}
+
+#authbox .serverUrl, #authbox .sessionId {
+	overflow: hidden;
+	padding: 5px;
+}
+
+#authbox .submit {
+	text-align: right;
+}
+
+#authbox .submit button {
+	background-color: #91D7ED;
+	border: 1px solid #4e8e97;
+	font-size: 14px;
+	font-weight: bold;
+	border-radius: 3px;
+	padding: 5px;
+	color: #FFFFFF;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+}
+
+#authbox .submit button:hover {
+	background-color: #FFFFFF;
+	color: #91D7ED;
+	cursor: pointer;
+}
+
+#authbox h2{
+	margin:0px;
+	padding-left: 2px;
+	padding-bottom: 10px;
+}
+
+#authbox .notify{
+	padding-top: 7px;
+	padding-bottom: 5px;
+	padding-left: 2px;
+	display: none;
+}
+
+.notify.error {
+	color: #D32B6F;
+}
+
+.notify.confirm {
+	color: #B8E144;
+}
+
+#console {
+	border: 1px solid #4e504c;
+	position: fixed;
+	top: 30px;
+	bottom: 30px;
+	left: 30px;
+	right: 30px;
+	border-radius: 5px;
+	overflow: scroll;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+#console .message{
+	padding-bottom: 5px;
+}
+
+#console .message .payload {
+	white-space: pre;
+	font-size: 13px;
+	font-family: monaco,Courier
+}
+
+#console .message .date {
+	float: right;
+	color: #8D8E89;
+	font-size: 9px;
+}
+
+#topbar{
+	overflow: hidden;
+	position: fixed;
+	top: 7px;
+	left: 30px;
+	right: 30px;
+}
+
+#topbar h1.title {
+	margin: 0px;
+	font-size: 12px;
+	font-weight: normal;
+	color: #4e504c;
+	text-transform: uppercase;
+	float: left;
+}
+
+#topbar > .notify {
+	float: right;
+	font-size: 12px;
+}
+
+.red {
+	color: #A42C50;
+}
+
+.green {
+	color: #B7DD43;
+}
+
+.white {
+	color: #F0EDE2;
+}
+
+.gray {
+	color: #8D8E89;
+}
+
+.blue {
+	color: #8FD4EA;
+}
+
+.purple {
+	color: #A180FA;
+}
+
+.hidden {
+	display: none;
+}
+
+#pause {
+	float: right;
+	margin-left: 20px;
+
+	background-color: #91D7ED;
+	border: 1px solid #4e8e97;
+	font-size: 10px;
+	font-weight: bold;
+	border-radius: 3px;
+	padding: 2px;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	outline-width: 0;
+}
+
+#pause:active {
+	background-color: #FFFFFF;
+	color: #91D7ED;
+	cursor: pointer;
+}
+
+
+

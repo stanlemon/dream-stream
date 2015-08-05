@@ -1,0 +1,17 @@
+{
+  "name": "dreamforce-websocket",
+  "description": "Demonstration of OAuth'd websocket",
+  "author": "Stan Lemon <slemon@salesforce.com>",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.x",
+    "jade": "0.27.2",
+    "jsforce": "1.4.1",
+    "pg-promise": "^1.8.5",
+    "websocket": "1.0.7"
+  },
+  "scripts": {
+    "server-dev": "node server"
+  }
+}

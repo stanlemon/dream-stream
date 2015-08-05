@@ -1,0 +1,19 @@
+extends ./layout
+
+block content
+	#topbar
+		h1.title='Real Time Stream Console'
+	#console
+
+	#authbox
+		h2='Login'
+		div.notify.error='This is a test'
+		form(action='#', method='post')
+			div.serverUrl
+				label='serverUrl'
+				input(type='text',name='serverUrl',id='serverUrl')
+			div.sessionId
+				label='sessionId'
+				input(type='sessionId',name='sessionId',id='sessionId')
+			div.submit
+				button(id='submit')='Submit'
