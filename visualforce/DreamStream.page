@@ -1,0 +1,87 @@
+<apex:page docType="html-5.0" showHeader="false" sidebar="false" standardStylesheets="false">
+	
+<html lang="en">
+	<head>
+		<title>Dream Stream</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+			<script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="container-fluid">
+
+			<h1 class="title">Dream Stream</h1>
+
+			<div id="dream-stream"></div>
+
+		</div>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="//dreamforce-real-time-stream.herokuapp.com/js/dream-api.js"></script>
+		<script>
+			function displayMessage(data) {
+				var now = new Date();
+
+				var date = (now.getMonth() + 1) + "/" + now.getDate() + "/" + now.getFullYear() + ' ' + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+
+				var color = 'warning';
+				var message = '<div class="pull-right text-muted">' + date + '</div>';
+
+				if (data.type == 'event' && data.contact != undefined) {
+					color = 'success';
+				}
+				if (data.type == 'event' && data.lead != undefined) {
+					color = 'info';
+				}
+
+				if (data.event !== undefined) {
+					if (data.contact !== undefined) {
+						message += '<i class="glyphicon glyphicon-user"/> ';
+					} else {
+						message += '<i class="glyphicon glyphicon-time"/> ';
+					}
+
+					var prospect = data.lead === undefined ? data.contact : data.lead;
+					message += '<strong>' + data.event + ':</strong> <a href="' + prospect.email + '">' + prospect.name + '</a> (' + prospect.title + ')';
+
+					if (data.contact !== undefined) {
+						message += ' &middot; <a href="' + prospect.account_website + '">' + prospect.account_name + '</a>';
+					}
+				} else if (data.id != undefined && data.email != undefined) {
+					message += data.email + ' now logged on!';
+				}
+				
+				$('#dream-stream').prepend('<div class="alert alert-' + color + '">' + message + '</div>');
+			}
+
+			var dreamApi = new DreamApi({
+				authenticationSuccess: function(data) {
+					displayMessage(data);
+				},
+				authenticationError: function(data) {
+					displayMessage(data);
+				},
+				processMessage: displayMessage,
+				connected: function() {
+					dreamApi.authenticate({
+						// pull the instance URL from current location; can also use apex to determine this
+						serverUrl: window.location.href.substring(0, window.location.href.search('.com') + 5),
+						sessionId: '{!$API.Session_ID}'
+					});
+				},
+				url: 'wss://dreamforce-real-time-stream.herokuapp.com'
+			});
+
+			dreamApi.connect();
+		</script>
+
+	</body>
+</html>
+
+</apex:page>

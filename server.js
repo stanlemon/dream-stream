@@ -18,7 +18,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 
 app.get('/', function (req, res) {
-	res.render('index', { title: 'Real Time Stream Console' });
+	res.render('index', { title: 'Dream Stream Console' });
 });
 
 app.get('/send', function(req, res) {
@@ -60,7 +60,7 @@ app.get('/send', function(req, res) {
 server = http.createServer(app);
 
 server.listen(app.get('port'), function() {
-  console.log('Real Time Stream is running on port ' + app.get('port'));
+  console.log('Dream Stream is running on port ' + app.get('port'));
 });
 
 dreamSocket.decorate(server);

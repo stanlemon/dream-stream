@@ -1,5 +1,8 @@
-# dreamforce
+# The Dream Stream
 Demo code for Dreamforce 2015
+
+Running Locally
+====================
 
 1. Setup
 
@@ -22,3 +25,12 @@ Demo code for Dreamforce 2015
     ```
 
     Use your Salesforce instance URL for serverUrl and session ID for sessionId; both can be retrieved using a little VF and apex...
+
+1. Creating a tracked event
+    ```
+    ...
+    ```
+
+
+Running in Salesforce Org and Using Heroku
+====================
